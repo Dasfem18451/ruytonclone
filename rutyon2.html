@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruyton Girls' School | Private Girls' School Melbourne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a2540;
+      --navy-dark: #061a2e;
+      --yellow: #f5c518;
+      --teal: #00a8b5;
+      --pink: #c41e6a;
+      --white: #ffffff;
+      --light: #f5f7fa;
+      --text: #1a2a3a;
+      --muted: #5a6a7a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      line-height: 1.5;
+      background: var(--white);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ========== TOP BAR ========== */
+    .top-bar {
+      position: fixed;
+      top: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 0.9rem 1.5rem;
+      background: rgba(10,37,64,0.85);
+      backdrop-filter: blur(8px);
+    }
+    .top-bar a, .top-bar span {
+      color: white;
+      font-size: 1.15rem;
+      opacity: 0.9;
+    }
+    .quicklinks {
+      background: var(--navy);
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      padding: 0.7rem 1.2rem;
+      text-transform: uppercase;
+    }
+
+    /* Vertical Contact Us */
+    .contact-us-side {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%) rotate(180deg);
+      writing-mode: vertical-rl;
+      background: var(--teal);
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      padding: 1.5rem 0.6rem;
+      z-index: 90;
+      text-transform: uppercase;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(10,37,64,0.45), rgba(10,37,64,0.55)),
+                  url('https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1920&q=80') center/cover no-repeat;
+       color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 4rem 3rem;
+    }
+
+    .hero-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logo-crest {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+    }
+
+    .hero-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex: 1;
+      padding-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 7vw, 6.5rem);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -2px;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      border: 3px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 280px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.4rem;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+      transition: transform 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--navy);
+    }
+    .btn-arrow {
+      width: 30px;
+      height: 30px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    /* ========== SECTIONS ========== */
+    .section {
+      padding: 5rem 6%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-full {
+      padding: 5rem 6%;
+    }
+
+    .label {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 0.4rem 1rem;
+      border-radius: 3px;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+    .label-navy { background: var(--navy); }
+    .label-yellow { background: var(--yellow); color: var(--navy); }
+    .label-pink { background: var(--pink); }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .section-text {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+    .read-more {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .read-more:hover { text-decoration: underline; }
+
+    /* ========== VCE ========== */
+    .vce {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .vce-image {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 16/11;
+      background: #ddd url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1000&q=80') center/cover;
+      position: relative;
+    }
+    .vce-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ========== WELCOME + LEVELS ========== */
+    .welcome {
+      background: var(--light);
+      text-align: center;
+    }
+    .welcome .section-title {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      font-size: 2rem;
+    }
+    .level-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .level-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 320px;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      font-weight: 700;
+      font-size: 1.6rem;
+      padding: 1.5rem;
+      background-size: cover;
+      background-position: center;
+    }
+    .level-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 35%, rgba(0,0,0,0.75));
+    }
+    .level-card > * { position: relative; z-index: 1; }
+    .level-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--navy);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.8rem;
+      border-radius: 3px;
+    }
+    .card-early { background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=700&q=80'); }
+    .card-junior { background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=80'); }
+    .card-senior { background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&q=80'); }
+
+    /* ========== WHY RUYTON ========== */
+    .why {
+      text-align: center;
+      padding: 5rem 6%;
+    }
+    .why-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1rem 0 0.75rem;
+    }
+    .why-sub {
+      color: var(--muted);
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+    }
+
+    /* ========== FEATURE GRID ========== */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .feature {
+      position: relative;
+      height: 380px;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      padding: 2rem;
+      background-size: cover;
+      background-position: center;
+    }
+    .feature::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 30%, rgba(0,0,0,0.75));
+    }
+    .feature-content { position: relative; z-index: 1; }
+    .feature-tag {
+      display: inline-block;
+      background: var(--navy);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.8rem;
+      border-radius: 3px;
+      margin-bottom: 0.6rem;
+    }
+    .feature-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .f-wellbeing { background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=900&q=80'); }
+    .f-academic { background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80'); }
+    .f-cocurricular { background-image: url('https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900&q=80'); }
+    .f-trinity { background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=80'); }
+
+    /* ========== PROGRAMS ========== */
+    .programs {
+      text-align: center;
+      padding: 5rem 6%;
+    }
+    .programs-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1rem 0 3rem;
+    }
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .program-card {
+      position: relative;
+      height: 280px;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      padding: 1.25rem;
+      background-size: cover;
+      background-position: center;
+    }
+    .program-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 40%, rgba(0,0,0,0.75));
+    }
+    .program-card > * { position: relative; z-index: 1; }
+    .program-tag {
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      background: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+    }
+    .program-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .p-leadership { background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80'); }
+    .p-south { background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80'); }
+    .p-buoyancy { background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80'); }
+    .p-inspire { background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80'); }
+
+    /* ========== COMMUNITY ========== */
+    .community {
+      background: var(--light);
+      padding: 5rem 6%;
+    }
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    .community-item img,
+    .community-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      background: #ddd;
+    }
+    .community-item h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .community-item p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+    .discover {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--navy);
+      color: white;
+      padding: 4rem 6% 3rem;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .footer-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 260px;
+    }
+    .footer-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.3rem;
+      background: #1a3a5c;
+      color: white;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .footer-info {
+      text-align: center;
+      flex: 1;
+    }
+    .footer-logo {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 1rem;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .footer-school {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .footer-address {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      justify-content: center;
+      margin: 2.5rem 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .footer-links a {
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 0.15rem;
+    }
+    .footer-ack {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      text-align: center;
+    }
+
+    /* Responsive fallbacks */
+    @media (max-width: 1100px) {
+      .vce { grid-template-columns: 1fr; }
+      .level-grid, .program-grid, .community-grid { grid-template-columns: 1fr 1fr; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .hero { padding: 1.5rem; }
+      .hero-body { flex-direction: column; align-items: flex-start; gap: 2rem; }
+      .level-grid, .program-grid, .community-grid { grid-template-columns: 1fr; }
+      .top-bar, .contact-us-side { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <a href="tel:+234 80 123 456 56">📞</a>
+    <a href="mailto:ruyton@ruyton.vic.edu.au">✉</a>
+    <span>🔍</span>
+    <a href="#" class="quicklinks">QUICKLINKS</a>
+  </div>
+
+  <!-- Vertical Contact Us -->
+  <a href="#" class="contact-us-side">CONTACT US</a>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-header">
+      <div class="logo">
+        <div class="logo-crest">R</div>
+        <div class="logo-text">RUYTON</div>
+      </div>
+    </div>
+
+    <div class="play-btn">▶</div>
+
+    <div class="hero-body">
+      <h1 class="hero-title">WE<br>BELIEVE<br>IN GIRLS</h1>
+
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-yellow">
+          BOOK A TOUR
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#" class="btn btn-yellow">
+          APPLY NOW
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VCE RESULTS -->
+  <section class="section">
+    <div class="vce">
+      <div>
+        <span class="label">VCE RESULTS</span>
+        <h2 class="section-title">What makes the achievements of every student in the Class of 2025 so special?</h2>
+        <p class="section-text">
+          This year’s VCE results are outstanding with 15% of students achieving an ATAR of 99 or above. While the academic results are truly impressive, what matters most – and what we celebrate most – is the courage, commitment and determination shown by our students throughout their VCE journey.
+        </p>
+        <a href="#" class="read-more">READ MORE →</a>
+      </div>
+      <div class="vce-image">
+        <div class="vce-badge">CLASS OF 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME -->
+  <section class="section-full welcome">
+    <span class="label label-navy">WELCOME TO RUYTON GIRLS' SCHOOL</span>
+    <h2 class="section-title">
+      An independent, forward thinking school from Kindergarten to Year 12, Ruyton supports each girl to achieve her personal best.
+    </h2>
+
+    <div class="level-grid">
+      <div class="level-card card-early">
+        <span class="level-tag">K - PRE PREP</span>
+        <span>EARLY LEARNING</span>
+      </div>
+      <div class="level-card card-junior">
+        <span class="level-tag">PREP - YEAR 6</span>
+        <span>JUNIOR SCHOOL</span>
+      </div>
+      <div class="level-card card-senior">
+        <span class="level-tag">YEAR 7 - 12</span>
+        <span>SENIOR SCHOOL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY RUYTON -->
+  <section class="why">
+    <span class="label label-yellow">WHY RUYTON?</span>
+    <h2 class="why-title">Learn how we inspire girls to be bold.</h2>
+    <p class="why-sub">We educate girls to live lives of impact and purpose.</p>
+  </section>
+
+  <!-- FEATURE GRID -->
+  <div class="feature-grid">
+    <div class="feature f-wellbeing">
+      <div class="feature-content">
+        <span class="feature-tag">WELLBEING</span>
+        <div class="feature-title">WELLBEING</div>
+      </div>
+    </div>
+    <div class="feature f-academic">
+      <div class="feature-content">
+        <span class="feature-tag">ACADEMIC EXCELLENCE</span>
+        <div class="feature-title">ACADEMIC EXCELLENCE</div>
+      </div>
+    </div>
+    <div class="feature f-cocurricular">
+      <div class="feature-content">
+        <span class="feature-tag">CO-CURRICULAR</span>
+        <div class="feature-title">CO-CURRICULAR OPPORTUNITIES</div>
+      </div>
+    </div>
+    <div class="feature f-trinity">
+      <div class="feature-content">
+        <span class="feature-tag">PARTNERSHIP WITH TRINITY</span>
+        <div class="feature-title">PARTNERSHIP WITH TRINITY</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNATURE PROGRAMS -->
+  <section class="programs">
+    <span class="label label-yellow">POWERFUL LEARNING</span>
+    <h2 class="programs-title">Our Signature Programs</h2>
+
+    <div class="program-grid">
+      <div class="program-card p-leadership">
+        <span class="program-tag">PREP – YEAR 12</span>
+        <div class="program-title">STUDENT LEADERSHIP</div>
+      </div>
+      <div class="program-card p-south">
+        <span class="program-tag">YEAR 4</span>
+        <div class="program-title">SOUTH HOUSE</div>
+      </div>
+      <div class="program-card p-buoyancy">
+        <span class="program-tag">YEARS 7 – 9</span>
+        <div class="program-title">ACADEMIC BUOYANCY</div>
+      </div>
+      <div class="program-card p-inspire">
+        <span class="program-tag">PREP – YEAR 12</span>
+        <div class="program-title">INSPIRE ME</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR COMMUNITY -->
+  <section class="community">
+    <span class="label label-pink">OUR COMMUNITY</span>
+
+    <div class="community-grid">
+      <div class="community-item">
+        <div class="community-img" style="background: url('https://images.unsplash.com/photo-1511632765486-a01980e01a43?w=700&q=80') center/cover;"></div>
+        <h3>PARENTS OF RUYTON</h3>
+        <p>The Parents of Ruyton (POR) is the umbrella organisation for all of the parent support groups in the School. The POR engages our parent community in social activities and strengthens the bond and interaction between parents and the School.</p>
+        <a href="#" class="discover">DISCOVER MORE →</a>
+      </div>
+
+      <div class="community-item">
+        <div class="community-img" style="background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80') center/cover;"></div>
+        <h3>OLD RUYTONIANS' ASSOCIATION</h3>
+        <p>Our alumnae are known as Old Ruytonians and includes any student who has attended Ruyton for all or part of their education. An active Alumnae community through events and activities conducted by The Old Ruytonians' Association (ORA).</p>
+        <a href="#" class="discover">DISCOVER MORE →</a>
+      </div>
+
+      <div class="community-item">
+        <div class="community-img" style="background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80') center/cover;"></div>
+        <h3>SCHOOL STAFF</h3>
+        <p>Key to our outstanding record of academic excellence and reputation for knowing all our students as individuals are our team of highly qualified and experienced academic and general staff.</p>
+        <a href="#" class="discover">DISCOVER MORE →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-ctas">
+        <a href="#" class="footer-btn">VISIT RUYTON <span>→</span></a>
+        <a href="#" class="footer-btn">APPLY NOW <span>→</span></a>
+      </div>
+
+      <div class="footer-info">
+        <div class="footer-logo">R</div>
+        <div class="footer-school">RUYTON GIRLS' SCHOOL</div>
+        <div class="footer-address">
+          12 Selbourne Road, Kew 3101 VIC, Australia<br>
+          +234 80 670 670 67<br>
+          ruyton@ruyton.vic.edu.au
+        </div>
+        <div class="footer-social">
+          <span>f</span>
+          <span>📷</span>
+          <span>in</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">BOOK A TOUR</a>
+      <a href="#">APPLY NOW</a>
+      <a href="#">TERM DATES</a>
+      <a href="#">EMPLOYMENT</a>
+      <a href="#">POLICIES</a>
+      <a href="#">INTRANET</a>
+    </div>
+
+    <p class="footer-ack">
+      Ruyton Girls’ School acknowledges that our School is situated on the land of the traditional custodians,
+      the Wurundjeri people of the Kulin Nation. We pay our respects to their Elders past and present,
+      and extend our respect to all First Nations people.
+    </p>
+
+    <p class="footer-copy">© 2026 Ruyton Girls’ School ® · site by Digistorm</p>
+  </footer>
+
+</body>
+</html>
